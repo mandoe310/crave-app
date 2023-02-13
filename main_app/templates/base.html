@@ -16,12 +16,12 @@
         <nav>
             <div class="nav-wrapper">
                 <ul>
-                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Crave</a></li>
+                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;CRAVE</a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'places_create' %}">Add Place</a></li>
-                    <li><a href="{% url 'index' %}">List</a></li>
+                    <li><a href="{% url 'about' %}" id="about-link">ABOUT</a></li>
+                    <li><a href="{% url 'places_create' %}" id = "create-link">ADD PLACE</a></li>
+                    <li><a href="{% url 'index' %}" id="list-link">LIST</a></li>
               
                 </ul>
             </div>
@@ -36,3 +36,16 @@
     </footer>
 </body>
 </html>
+
+
+<script>
+    const links = document.querySelectorAll("nav .right a");
+    const currentLocation = window.location.pathname;
+
+    links.forEach(link => {
+        
+        if (link.getAttribute("href") === currentLocation) {
+            link.classList.add("active");
+        }
+    });
+</script>

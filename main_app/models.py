@@ -16,7 +16,7 @@ RATING=(
 class Place(models.Model):
   name = models.CharField(max_length=100)
   location = models.CharField(max_length=100)
-  notes = models.TextField(max_length=250)
+  notes = models.TextField(max_length=2500)
   rating = models.IntegerField(
     choices=RATING,
     )
