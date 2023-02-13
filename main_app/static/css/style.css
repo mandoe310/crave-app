@@ -3,8 +3,23 @@ body {
     min-height: 100vh;
     flex-direction: column;
   }
-  
-  main {
+
+nav  {
+    background-color:white;
+
+  }
+
+  nav .brand-logo{
+    color:#FFE24A;
+  }
+  nav .right a {
+    color:#bbb
+  }
+  header.navbar-fixed nav ul li a.active{
+    color: #202020;
+}
+
+main {
     flex: 1 0 auto;
   }
   
