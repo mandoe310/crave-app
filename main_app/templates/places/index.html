@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{%block content%}
+<h1>My List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>place</th>
+            <th>location</th>
+            <th>my rating</th>
+            <th>notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for place in places%}
+            <tr>
+                <td><a href="{%url 'detail' place.id %}">{{ place.name }}</a></td>
+
+                <td>{{ place.location }}</td>
+                <td>{{ place.rating }}</td>
+                <td>{{ place.notes }}</td>
+            </tr>
+        
+        </tbody>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
