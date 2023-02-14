@@ -3,9 +3,11 @@ import boto3
 import os
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import DetailView
+
+from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from .models import Place
+from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Place, Photo
@@ -32,6 +34,7 @@ def places_detail(request, place_id):
         'place': place,
     })
 
+=======
 class PlaceCreate(LoginRequiredMixin, CreateView):
     model = Place
     fields = ['name', 'location', 'notes', 'rating']
