@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+
 body {
     display: flex;
     min-height: 100vh;
@@ -11,10 +14,17 @@ nav  {
 
   nav .brand-logo{
     color:#FFE24A;
+    font-family: 'Krona One', sans-serif;
   }
   nav .right a {
     color:#bbb
   }
+
+  #place-name {
+    font-family: 'Krona One', sans-serif;
+    color:#3f3f3f
+  }
+
   header.navbar-fixed nav ul li a.active{
     color: #202020;
 }
@@ -33,4 +43,10 @@ main {
   .grey-text {
     color:#949494;
   }
+
+.clickable:hover td{
+    background-color:#eee;
+    cursor:pointer;
+}
+
   
