@@ -25,6 +25,7 @@
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'places_create' %}" id = "create-link">ADD PLACE</a></li>
                     <li><a href="{% url 'index' %}" id="list-link">LIST</a></li>
+                    <li><a href="{% url 'hitlist_index' %}" id="hitlist-link">HIT LIST</a></li>
                     <li><a href="{% url 'logout' %}">LOG OUT</a></li>
                     {% else %}
                     <li><a href="{% url 'signup' %}">SIGN UP</a></li>

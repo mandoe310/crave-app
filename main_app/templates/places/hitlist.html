@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{%block content%}
+<h1 id="list-title"><span >@{{user.username}}'s</span> list</h1>
+
+<table>
+    <thead>
+        <tr class="grey-text">
+            <th>place</th>
+            <th>location</th>
+            <th>my rating</th>
+            <th>notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for place in places%}
+            <tr class="clickable" data-href="{%url 'detail' place.id %}">
+                <td>
+                    <a id="place-name">{{ place.name }}</a>
+                    <br><span class="grey-text">{{place.get_place_type_display}}</span>
+                </td>
+
+                <td>{{ place.location }}</td>
+                <td>{{ place.get_rating_display }}</td>
+                <td>{{ place.notes }}</td>
+            </tr>
+        
+        </tbody>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+
+const clickable=document.querySelectorAll(".clickable");
+clickable.forEach(clickable => {
+    clickable.addEventListener('click', () =>{
+        window.location.href = clickable.getAttribute('data-href');
+    });
+});
+
+</script>
+{% endblock %}
