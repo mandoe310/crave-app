@@ -34,7 +34,7 @@ def places_detail(request, place_id):
 
 class PlaceCreate(LoginRequiredMixin, CreateView):
     model = Place
-    fields = '__all__'
+    fields = ['name', 'location', 'notes', 'rating']
 
     def form_valid(self, form):
      form.instance.user = self.request.user  
