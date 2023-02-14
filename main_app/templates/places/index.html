@@ -13,9 +13,9 @@
     </thead>
     <tbody>
         {% for place in places%}
-            <tr>
+            <tr class="clickable" data-href="{%url 'detail' place.id %}">
                 <td>
-                    <a href="{%url 'detail' place.id %}">{{ place.name }}</a>
+                    <a id="place-name">{{ place.name }}</a>
                     <br><span class="grey-text">{{place.get_place_type_display}}</span>
                 </td>
 
@@ -28,6 +28,14 @@
         {% endfor %}
     </tbody>
 </table>
+<script>
 
+const clickable=document.querySelectorAll(".clickable");
+clickable.forEach(clickable => {
+    clickable.addEventListener('click', () =>{
+        window.location.href = clickable.getAttribute('data-href');
+    });
+});
 
+</script>
 {% endblock %}
