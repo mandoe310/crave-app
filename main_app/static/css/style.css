@@ -19,6 +19,8 @@ nav  {
     color: #202020;
 }
 
+
+
 main {
     flex: 1 0 auto;
   }
@@ -26,5 +28,9 @@ main {
   footer.page-footer {
     padding-top: 0;
     text-align: right;
+  }
+  
+  .grey-text {
+    color:#949494;
   }
   
