@@ -25,7 +25,7 @@ def about(request):
 
 @login_required
 def places_index(request):
-  places = Place.objects.filter(user=request.user)
+  places = Place.objects.filter(user=request.user, status="B")
   return render(request, 'places/index.html', {
     'places': places
   })
@@ -38,9 +38,16 @@ def places_detail(request, place_id):
         'user': place.user
     })
 
+@login_required
+def hitlist_index(request):
+  places = Place.objects.filter(user=request.user, status='H')
+  return render(request, 'places/hitlist.html', {
+    'places': places
+  })
+
 class PlaceCreate(LoginRequiredMixin, CreateView):
     model = Place
-    fields = ['name', 'location', 'notes', 'rating']
+    fields = ['name', 'status', 'location', 'place_type', 'notes', 'rating']
 
     def form_valid(self, form):
      form.instance.user = self.request.user  
@@ -48,7 +55,7 @@ class PlaceCreate(LoginRequiredMixin, CreateView):
 
 class PlaceUpdate(LoginRequiredMixin, UpdateView):
     model = Place
-    fields = '__all__'
+    fields = ['name', 'status', 'location', 'place_type', 'notes', 'rating']
 
 class PlaceDelete(LoginRequiredMixin, DeleteView):
     model = Place

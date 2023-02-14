@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 RATING=(
+    (0,''),
     (1, '⭐️'),
     (2,'⭐️⭐️'),
     (3,'⭐️⭐️⭐️'),
@@ -17,17 +18,31 @@ TYPES =(
   ('B','bar'),
   ('D', 'dessert'),
 )
+
+STATUS = (
+  ('B','Been'),
+  ('H','Have not been'),
+)
 # Create your models here.
 
 class Place(models.Model):
   name = models.CharField(max_length=100)
   location = models.CharField(max_length=100)
-  notes = models.TextField(max_length=2500)
+  status = models.CharField(
+    max_length=1,
+    choices=STATUS,
+  )
+  notes = models.TextField(
+    max_length=2500,
+    blank=True,
+    )
   place_type = models.TextField(
     choices=TYPES,
   )
   rating = models.IntegerField(
-    choices=RATING,)
+    choices=RATING,
+    default=0
+    )
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   
   def __str__(self):
