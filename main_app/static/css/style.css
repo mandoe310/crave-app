@@ -41,6 +41,8 @@ main {
   footer.page-footer {
     padding-top: 0;
     text-align: right;
+    background-color: #bbb;
+    color: white;
   }
   
   .grey-text {
