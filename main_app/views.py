@@ -15,7 +15,10 @@ from .models import Place, Photo
 # Create your views here.
 
 def home(request):
-  return render(request, 'home.html')
+  if request.user.is_authenticated:
+    return redirect('index')
+  else:
+    return redirect('about')
 
 def about(request):
   return render(request, 'about.html')
