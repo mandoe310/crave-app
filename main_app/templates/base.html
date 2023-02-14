@@ -20,8 +20,14 @@
                 </ul>
                 <ul class="right">
                     <li><a href="{% url 'about' %}" id="about-link">ABOUT</a></li>
+                    {% if user.is_authenticated %}
                     <li><a href="{% url 'places_create' %}" id = "create-link">ADD PLACE</a></li>
                     <li><a href="{% url 'index' %}" id="list-link">LIST</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
               
                 </ul>
             </div>
