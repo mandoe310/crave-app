@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {%block content%}
-<h1><span id="">@{{user.username}}'s</span> list</h1>
+<h1 id="list-title"><span >@{{user.username}}'s</span> list</h1>
 
 <table>
     <thead>
-        <tr>
+        <tr class="grey-text">
             <th>place</th>
             <th>location</th>
             <th>my rating</th>
@@ -16,7 +16,7 @@
             <tr>
                 <td>
                     <a href="{%url 'detail' place.id %}">{{ place.name }}</a>
-                    <br><span style="color:#949494">{{place.get_place_type_display}}</span>
+                    <br><span class="grey-text">{{place.get_place_type_display}}</span>
                 </td>
 
                 <td>{{ place.location }}</td>
