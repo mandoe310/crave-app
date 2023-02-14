@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import Place
+from django.urls import reverse_lazy
 # from .forms import
 # from django.contrib.auth import login
 # from django.contrib.auth.forms import UserCreationForm
@@ -30,8 +31,9 @@ def places_detail(request,place_id):
     })
 
 class PlaceCreate(CreateView):
+    success_url = reverse_lazy('places_index')
     model = Place
-    fields = '__all__'
+    fields = ['name', 'location', 'notes', 'rating']
 
 class PlaceUpdate(UpdateView):
     model = Place
