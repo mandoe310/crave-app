@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {%block content%}
-<h1>My List</h1>
+<h1><span id="">@{{user.username}}'s</span> list</h1>
 
 <table>
     <thead>
@@ -14,10 +14,13 @@
     <tbody>
         {% for place in places%}
             <tr>
-                <td><a href="{%url 'detail' place.id %}">{{ place.name }}</a></td>
+                <td>
+                    <a href="{%url 'detail' place.id %}">{{ place.name }}</a>
+                    <br><span style="color:#949494">{{place.get_place_type_display}}</span>
+                </td>
 
                 <td>{{ place.location }}</td>
-                <td>{{ place.rating }}</td>
+                <td>{{ place.get_rating_display }}</td>
                 <td>{{ place.notes }}</td>
             </tr>
         

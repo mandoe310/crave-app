@@ -35,6 +35,7 @@ def places_detail(request, place_id):
     place = Place.objects.get(id=place_id)
     return render(request,'places/detail.html',{
         'place': place,
+        'user': place.user
     })
 
 class PlaceCreate(LoginRequiredMixin, CreateView):
